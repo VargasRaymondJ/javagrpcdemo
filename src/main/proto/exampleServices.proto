@@ -1,0 +1,27 @@
+syntax = "proto3";
+option java_multiple_files = true;
+
+enum Sentiment
+{
+    Happy = 0;
+    Sad = 1;
+    Tired = 2;
+    Angry = 3;
+}
+
+message helloRequest
+{
+    string name = 1;
+    repeated String hobbies = 2;
+    map<string, string> bagOfTricks = 3;
+    Sentiment sentiment = 4;
+}
+
+message HelloResponse{
+    string greeting = 1;
+}
+
+service GreetingService{
+//    Only takes one argument for both request and response
+    rpc greeting(Request) returns (response);
+}
